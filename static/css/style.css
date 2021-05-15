@@ -1,0 +1,25 @@
+.card-img-link .img-fluid {
+    transition: .3s;
+    height: 30rem;
+    min-inline-size: -webkit-fill-available;
+    object-fit: cover;
+}
+
+.card-img-link .img-fluid:hover {
+
+opacity: .85;
+
+}
+
+.pagination input:focus{
+    outline: none;
+}
+
+
+.pagination form{
+    display: flex;
+}
+
+.pagination form .page-item:first-child{
+    padding: 14px;
+}

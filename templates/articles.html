@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+
+{% block body %}
+
+
+<h2>Makaleler</h2>
+<hr>
+
+<div class="d-flex flex-column flex-lg-row-reverse">
+    <div class="col-md-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <form>
+                    {% csrf_token %}
+                    <li class="page-item"><a class="page-link" style="padding: 14px;"><input type="text" name="keyword"
+                                class="input-sm" maxlength="64" placeholder="Ara..."></a></li>
+                    <li class="page-item"><a class="page-link"><button type="submit"
+                                class="btn btn-primary">Ara</button></a></li>
+                </form>
+            </ul>
+        </nav>
+    </div>
+    {% if articles %}
+    <div class="col-lg-8">
+        {% for article in articles %}
+        <div class="card mb-3">
+            {% if article.article_image %}
+            <a class="card-img-link" href="{% url 'article:article' article.id %}"><img class="img-fluid rounded"
+                    src="{{article.article_image.url}}" alt=""></a>
+            {% endif %}
+            <div class="card-body">
+
+                <h5 class="card-title">{{article.title}}</h5>
+                <div class="card-text">
+                    {{article.content|safe|truncatewords:30}}
+                </div>
+
+                <a class="card-link" href="{% url 'article:article' article.id %}">Devamını oku</a>
+            </div>
+
+            <div class="card-footer text-muted d-flex justify-content-between">
+                <small>"{{article.author}}" tarafından oluşturuldu </small>
+                <small>{{article.created_date}}</small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+
+    {% else %}
+    <div class="mr-auto alert alert-warning">Makale bulunmuyor</div>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}
