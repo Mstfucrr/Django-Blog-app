@@ -1,7 +1,9 @@
 ﻿# Django-Blog-app
  
  Başlangıç (cmd)
+ 
 1- pip install Django==version_numarası    version_numarası girilmemiş ise son version indirilir
+
 2- django-admin --version   == > version öğrenmek
 3- django-admin startproject proje_ismi     bulunduğu dizinie proje_ismi isminde projeyi oluşturur eg.(blog)
 blog içinde (blog/( __init__.py & settings.py & urls.py & wsgi.py) ) & manage.py dosyaları oluşacak
